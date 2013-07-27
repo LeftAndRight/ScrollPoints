@@ -4,7 +4,7 @@
 	<title>ScrollPoint Tester</title>
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../ScrollPoints.js"></script>
+	<script type="text/javascript" src="../ScrollPoints.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -21,6 +21,11 @@
 			$("#div2").scrollPoint({position:300, direction:"down"}, function(){
 				scrollTo("#div3", 600);
 				console.log("Moving to div 3");
+			});
+
+			$("#div2").scrollPoint({position:10, direction:"up"}, function(){
+				scrollTo("html", 600);
+				console.log("Moving to the top of the page");
 			});
 
 		});
