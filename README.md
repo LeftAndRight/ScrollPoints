@@ -38,3 +38,12 @@ $("#div1").scrollPoint({position:700, direction:"down"}, function(){
 ```javascript
 $("#div1").scrollPoint({action:"remove"});
 ```
+
+###Percent based position
+```javascript
+// For 50%
+var position = Math.round($("#div1").height() * 0.5);
+$("#div1").scrollPoint({position:position, direction:"down"}, function(){
+    console.log("Scroll down event for mr div 1");
+});
+```
