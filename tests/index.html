@@ -8,9 +8,18 @@
 
 	<script type="text/javascript">
 		$(document).ready(function(){
+			var animating = false;
+			$(window).bind('mousewheel DOMMouseScroll', function(e) {
+				if (animating) {
+					e.preventDefault();
+				}
+			});
 
 			function scrollTo(elementId, time){
-				$("html, body").animate({scrollTop:$(elementId).offset().top}, time);
+				if (!animating){
+					animating = true;
+					$("html, body").animate({scrollTop:$(elementId).offset().top}, {duration:time, complete:function(){ animating = false; }});
+				}
 			}
 
 			$("#div1").scrollPoint({position:500, direction:"down"}, function(){
