@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ScrollPoint Tester</title>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../ScrollPoints.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			function scrollTo(elementId, time){
+				$("html, body").animate({scrollTop:$(elementId).offset().top}, time);
+			}
+
+			$("#div1").scrollPoint({position:500, direction:"down"}, function(){
+				scrollTo("#div2", 600);
+				console.log("Moving to div 2");
+			});
+
+			$("#div2").scrollPoint({position:300, direction:"down"}, function(){
+				scrollTo("#div3", 600);
+				console.log("Moving to div 3");
+			});
+
+		});
+	</script>
+
+	<style type="text/css">
+		div{ font-size: 40px; font-family: serif; text-align: center; }
+		#div1{ height: 800px; background: none repeat scroll 0% 0% rgb(89, 138, 134); }
+		#div2{ height: 900px; background: none repeat scroll 0% 0% rgb(147, 201, 225); }
+		#div3{ height: 1500px; background: none repeat scroll 0% 0% rgb(128, 3, 86); }
+	</style>
+</head>
+
+<body>
+
+<div id="div1">
+	DIV 1
+</div>
+<div id="div2">
+	DIV 2
+</div>
+<div id="div3">
+	DIV 3
+</div>
+
+
+</body>
+</html>
